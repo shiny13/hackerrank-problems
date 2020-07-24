@@ -6,7 +6,7 @@ import sys
 
 # Complete the hourglassSum function below.
 def hourglassSum(arr):
-    val = 0
+    val = -math.inf
     rows = len(arr)
     cols = len(arr[0])
 
@@ -14,15 +14,15 @@ def hourglassSum(arr):
     while r <= rows-3:
         c = 0
         while c <= cols-3:
-            _val = arr[r][c]+arr[r][c+1]+arr[r][c+2]+\
+            _val = float(arr[r][c]+arr[r][c+1]+arr[r][c+2]+\
                     arr[r+1][c+1]+\
-                    arr[r+2][c]+arr[r+2][c+1]+arr[r+2][c+2]  
+                    arr[r+2][c]+arr[r+2][c+1]+arr[r+2][c+2])  
             if _val > val:
                 val = _val
             c+=1
         r+=1
 
-    return val
+    return int(val)
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
